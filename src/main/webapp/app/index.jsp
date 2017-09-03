@@ -48,7 +48,7 @@
 	</div>
 	<footer>
 		<div class="container">
-			<p class="text-muted">${title}. © Company 2016</p>
+			<p class="text-muted">${title}. © Company 2016(contact:anthingbyme@protonmail.com)</p>
 		</div>
     </footer>
 
