@@ -3,7 +3,7 @@
 /**origin**#ed8b1e**/
 color: #ed8b1e;
 /***blue****/
-color: #008bac;
+color: #000001;
 color: #337ab7;
 /****wei lanse***/
 color: #EEF5F7;
@@ -24,6 +24,7 @@ body{
 	font-size: 13px;
 	word-wrap: break-word;
 	line-height: 1.7;
+	background-color: #ddffdd;
 }
 .wk-default-content-font{
 	font-size: 13px;
@@ -101,7 +102,7 @@ body{
 	margin: 10px;
 }
 .wk-default-blue{
-	 background-color: #008bac;
+	 background-color: #000001;
 }
 .warn-color-font{
 	color:#FF0000
@@ -110,38 +111,38 @@ body{
 .default-wk-blue-btn{
 	width: 100px;
     height: 40px;
-    color: #008bac;
-    border: 2px solid #008bac;
+    color: #000001;
+    border: 2px solid #000001;
     margin: 20px auto;
 }
 
 .default-wk-blue-btn:hover,
 .default-wk-blue-btn:focus,
 .default-wk-blue-btn:active{
-	background-color:#008bac;
+	background-color:#000001;
 	width: 100px;
     height: 40px;
     color: #FFF;
-    border: 2px solid #008bac;
+    border: 2px solid #000001;
     margin: 20px auto;
 }
 .default-wk-blue-btn[disabled]:hover,
 .default-wk-blue-btn{
 	width: 100px;
     height: 40px;
-    color: #008bac;
-    border: 2px solid #008bac;
+    color: #000001;
+    border: 2px solid #000001;
     margin: 20px auto;
 }
 
 .default-wk-blue-btn:hover,
 .default-wk-blue-btn:focus,
 .default-wk-blue-btn:active{
-	background-color:#008bac;
+	background-color:#000001;
 	width: 100px;
     height: 40px;
     color: #FFF;
-    border: 2px solid #008bac;
+    border: 2px solid #000001;
     margin: 20px auto;
 }
 
@@ -170,8 +171,8 @@ body{
 .default-wk-submit-btn{
 	width: 50px;
     height: 40px;
-    color: #008bac;
-    border: 2px solid #008bac;
+    color: #000001;
+    border: 2px solid #000001;
     margin: 10px auto;
     padding:0px;
 }
@@ -179,10 +180,10 @@ body{
 .default-wk-submit-btn:hover,
 .default-wk-submit-btn:focus,
 .default-wk-submit-btn:active{
-	background-color:#008bac;
+	background-color:#000001;
 	width: 50px;
     height: 40px;
-    border: 2px solid #008bac;
+    border: 2px solid #000001;
     color: #FFF;
     border: 0;
     margin: 10px auto;
@@ -342,7 +343,7 @@ body{
 	border:0px;
 }
 nav.navbar{ 
-	background-color:#008bac;
+	background-color:#000001;
 	margin:0px;
 	padding:0px;
 	border:0px;
@@ -404,7 +405,7 @@ footer {
 	height: 35px;
 	width: 165px;
 	border:0px;
-	background-color: #008bac;
+	background-color: #000001;
 	padding: 7px 27px;
 }
 .home-page-link a{
@@ -418,7 +419,7 @@ footer {
 	height: 35px; 
 	border : 2px solid #FFF;
 	margin-top: 6px; 
-	background-color:#008bac;
+	background-color:#000001;
 	color:#FFF
 }
 /*----------self-home-page page-------------*/
@@ -683,7 +684,7 @@ topic-comment-list .topic-comment-body .topic-comment-body-author{
 }
 .login-page .login-panel .panel-heading{
 	margin: 5px;
-	background-color:#008bac
+	background-color:#000001
 }
 .login-page .login-panel .login-email-input{
 	max-width : 320px;
@@ -709,8 +710,8 @@ topic-comment-list .topic-comment-body .topic-comment-body-author{
 .login-page .login-panel .regist-btn{
     width: 100px;
     height: 40px;
-    color: #008bac;
-    border: 2px solid #008bac;
+    color: #000001;
+    border: 2px solid #000001;
     margin: 20px auto;
 }
 .login-page .regist-panel-parent{

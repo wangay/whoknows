@@ -206,7 +206,7 @@ public class UserService {
 			registerMailInfo.setToAddress(user.getEmail());
 			registerMailInfo.setTitle("欢迎注册" + appName);
 			registerMailInfo.setContent("注册成功，请点击链接激活账号："
-					+ "<a href='" + link + "' style='color:#008bac'>激活</a> 。在跳转页面中直接完成登录操作.");
+					+ "<a href='" + link + "' style='color:#000001'>激活</a> 。在跳转页面中直接完成登录操作.");
 			aliMailService.regester(registerMailInfo);
 
 			log.info("Create user :{} success.", user.getEmail());
