@@ -163,8 +163,35 @@ public class UserService {
 			return false;
 		}
 	}
-
+	/***
+	 * 新的注册，不加邮件
+	 * @param user
+	 * @return
+	 */
 	public boolean createUser(User user) {
+		if (StringUtils.isEmpty(user.getEmail()) && StringUtils.isEmpty(user.getPasswd())) {
+			return false;
+		}
+		try {
+			user.setAction(ActionType.active.name());
+			Long id = userRepository.createUser(user);
+			String token = tokenService.genToken();
+			tokenService.storeToken(id, token);
+
+			log.info("Create user :{} success.", user.getEmail());
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+
+	/**
+	 * 之前的注册，需要邮件认证
+	 * @param user
+	 * @return
+	 */
+	public boolean createUserOld(User user) {
 		if (StringUtils.isEmpty(user.getEmail()) && StringUtils.isEmpty(user.getPasswd())) {
 			return false;
 		}
