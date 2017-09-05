@@ -10,7 +10,7 @@
 						<strong>注册失败!</strong> 
 					</div>
 					<div class="alert alert-success alert-dismissible" role="alert" ng-show="registSuccess">
-						<strong>注册成功!我们已经向您的邮箱：{{registInfo.email}} 发送了一封激活邮件.请注意查收。</strong> 
+						<strong>注册成功!请登录。</strong>
 					</div>
 					<div class="form-group">
 						<label for="inputEmail3" class="col-sm-3 control-label">邮箱地址</label>
