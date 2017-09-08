@@ -3,7 +3,7 @@
 	<div class="row row-offcanvas row-offcanvas-right">
         <div class="col-sm-6 login-panel-parent" >
 			<div class="panel login-panel">
-				<div class="panel-heading text-center">老客户</div>
+				<div class="panel-heading text-center">登录</div>
 				<div class="panel-body">
 					<h5>如果您已创建过账号，请在此登录：</h5>
 					<div class="alert alert-danger alert-dismissible" role="alert" ng-show="loggingError">
@@ -53,9 +53,9 @@
 		<div class="col-sm-1"></div>
         <div class="col-sm-5 regist-panel-parent" >
 			<div class="panel login-panel">
-				<div class="panel-heading text-center">新客户</div>
+				<div class="panel-heading text-center">新用户</div>
 				<div class="panel-body">
-					<h5>请点击相应按钮进行注册。</h5>	 
+					<h5>炒鸡简单的注册。</h5>
 					<div class="form-group">
 						<div class="col-sm-offset-4 col-sm-10">
 							<button type="submit" class="btn btn-default regist-btn" ng-click="regist()">注册</button>
