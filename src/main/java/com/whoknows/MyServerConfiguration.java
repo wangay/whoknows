@@ -29,7 +29,8 @@ class MyTomcatConnectorCustomizer implements TomcatConnectorCustomizer
 {
     public void customize(Connector connector)
     {
-        connector.setProperty("address","localhost");//设置只能localhost访问，外网无法通过ip访问（即使知道真实ip）
+        //connector.setProperty("address","localhost");//设置只能localhost访问，外网无法通过ip访问（即使知道真实ip）
+        //docker下实现不了想要的功能。先注释掉
         //Http11NioProtocol protocol = (Http11NioProtocol) connector.getProtocolHandler();
         //设置最大连接数
 //        protocol.setMaxConnections(2000);

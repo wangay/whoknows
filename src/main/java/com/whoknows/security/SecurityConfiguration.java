@@ -43,6 +43,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
 				// static resource permit all
+				//.antMatchers("index2.html","robots.txt").hasRole("ROLE_ADMIN"); 是否是某个角色，是的话才可以
+				// .antMatchers("/admin/**").hasAnyRole("ROLE_ADMIN","ROLE_USER")
+				//.antMatchers("/admin/**").hasIpAddress("210.210.210.210") 限定某ip才可以
+				.antMatchers("/robots.txt").permitAll()
 				.antMatchers("index.html", "/app/**", "/p/**", "login*").permitAll()
 				.antMatchers("/images/**", "/styles/**", "/fronts/**", "/components/**", "/bower_components/**").permitAll()
 				// spring mvn controller permit all
@@ -64,6 +68,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 				.antMatchers("/comment/**").authenticated()
 				.antMatchers("/vip/**").authenticated()
 				.antMatchers("/paper/**").authenticated()
+				//admin下需要身份验证
+				//.antMatchers("/admin/**").permitAll()
+				.antMatchers("/alex/**").permitAll()
 				.anyRequest().authenticated()
 				.and()
 				.formLogin().loginPage("/p/#/login").permitAll().and().csrf().disable()

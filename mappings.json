@@ -1,0 +1,353 @@
+{
+  "/app/**": {
+    "bean": "resourceHandlerMapping"
+  },
+  "/images/**": {
+    "bean": "resourceHandlerMapping"
+  },
+  "/styles/**": {
+    "bean": "resourceHandlerMapping"
+  },
+  "/fonts/**": {
+    "bean": "resourceHandlerMapping"
+  },
+  "/components/**": {
+    "bean": "resourceHandlerMapping"
+  },
+  "/bower_components/**": {
+    "bean": "resourceHandlerMapping"
+  },
+  "/webjars/**": {
+    "bean": "resourceHandlerMapping"
+  },
+  "/**": {
+    "bean": "resourceHandlerMapping"
+  },
+  "/**/favicon.ico": {
+    "bean": "faviconHandlerMapping"
+  },
+  "{[/properties/{key}],methods=[GET]}": {
+    "bean": "requestMappingHandlerMapping",
+    "method": "public org.springframework.http.ResponseEntity com.whoknows.app.PageContentController.getProperteis(java.lang.String)"
+  },
+  "{[/p/{dir}/{dir2}/{page}]}": {
+    "bean": "requestMappingHandlerMapping",
+    "method": "public java.lang.String com.whoknows.app.PageController.direct(java.lang.String,java.lang.String,java.lang.String)"
+  },
+  "{[/p/{dir}/{dir2}/{dir3}/{page}]}": {
+    "bean": "requestMappingHandlerMapping",
+    "method": "public java.lang.String com.whoknows.app.PageController.direct(java.lang.String,java.lang.String,java.lang.String,java.lang.String)"
+  },
+  "{[/p/{dir}/{dir2}/{dir3}/{dir4}/{page}]}": {
+    "bean": "requestMappingHandlerMapping",
+    "method": "public java.lang.String com.whoknows.app.PageController.direct(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)"
+  },
+  "{[/p/{dir}/{page}]}": {
+    "bean": "requestMappingHandlerMapping",
+    "method": "public java.lang.String com.whoknows.app.PageController.direct(java.lang.String,java.lang.String)"
+  },
+  "{[/p/{page}]}": {
+    "bean": "requestMappingHandlerMapping",
+    "method": "public java.lang.String com.whoknows.app.PageController.direct(java.lang.String)"
+  },
+  "{[/p/]}": {
+    "bean": "requestMappingHandlerMapping",
+    "method": "public java.lang.String com.whoknows.app.PageController.direct(org.springframework.ui.ModelMap)"
+  },
+  "{[/comment],methods=[PUT],produces=[application/json]}": {
+    "bean": "requestMappingHandlerMapping",
+    "method": "public org.springframework.http.ResponseEntity com.whoknows.comment.CommentController.createComment(com.whoknows.domain.Comment)"
+  },
+  "{[/comment],methods=[POST],produces=[application/json]}": {
+    "bean": "requestMappingHandlerMapping",
+    "method": "public org.springframework.http.ResponseEntity com.whoknows.comment.CommentController.updateComment(com.whoknows.domain.Comment)"
+  },
+  "{[/comment/{id}],methods=[DELETE]}": {
+    "bean": "requestMappingHandlerMapping",
+    "method": "public org.springframework.http.ResponseEntity com.whoknows.comment.CommentController.deleteComment(java.lang.Long)"
+  },
+  "{[/comment/list/{reply_id}/{page}],methods=[GET]}": {
+    "bean": "requestMappingHandlerMapping",
+    "method": "public org.springframework.http.ResponseEntity com.whoknows.comment.CommentController.getReplyList(java.lang.Long,java.lang.Integer)"
+  },
+  "{[/comment/{id}],methods=[GET]}": {
+    "bean": "requestMappingHandlerMapping",
+    "method": "public org.springframework.http.ResponseEntity com.whoknows.comment.CommentController.getComment(java.lang.Long)"
+  },
+  "{[/follow/user/{userId}/{targetId}],methods=[POST]}": {
+    "bean": "requestMappingHandlerMapping",
+    "method": "public org.springframework.http.ResponseEntity com.whoknows.follow.FollowController.followUser(java.lang.Long,java.lang.Long)"
+  },
+  "{[/follow/user/disable/{userId}/{targetId}],methods=[POST]}": {
+    "bean": "requestMappingHandlerMapping",
+    "method": "public org.springframework.http.ResponseEntity com.whoknows.follow.FollowController.disFollowUser(java.lang.Long,java.lang.Long)"
+  },
+  "{[/follow/tag/{userId}/{targetId}],methods=[POST]}": {
+    "bean": "requestMappingHandlerMapping",
+    "method": "public org.springframework.http.ResponseEntity com.whoknows.follow.FollowController.followTag(java.lang.Long,java.lang.Long)"
+  },
+  "{[/follow/tag/disable/{userId}/{targetId}],methods=[POST]}": {
+    "bean": "requestMappingHandlerMapping",
+    "method": "public org.springframework.http.ResponseEntity com.whoknows.follow.FollowController.disFollowTag(java.lang.Long,java.lang.Long)"
+  },
+  "{[/follow/topic/{userId}/{targetId}],methods=[POST]}": {
+    "bean": "requestMappingHandlerMapping",
+    "method": "public org.springframework.http.ResponseEntity com.whoknows.follow.FollowController.followTopic(java.lang.Long,java.lang.Long)"
+  },
+  "{[/follow/topic/disable/{userId}/{targetId}],methods=[POST]}": {
+    "bean": "requestMappingHandlerMapping",
+    "method": "public org.springframework.http.ResponseEntity com.whoknows.follow.FollowController.disFollowTopic(java.lang.Long,java.lang.Long)"
+  },
+  "{[/follow/recommend/{userId}],methods=[POST]}": {
+    "bean": "requestMappingHandlerMapping",
+    "method": "public org.springframework.http.ResponseEntity com.whoknows.follow.FollowController.followRecommend(java.lang.Long,com.whoknows.hot.HotRecommend)"
+  },
+  "{[/hot/vip/{page}],methods=[GET]}": {
+    "bean": "requestMappingHandlerMapping",
+    "method": "public org.springframework.http.ResponseEntity com.whoknows.hot.HotController.searchVipyKeyWordOnRank(java.lang.String,java.lang.Integer)"
+  },
+  "{[/hot/rand/vip],methods=[GET]}": {
+    "bean": "requestMappingHandlerMapping",
+    "method": "public org.springframework.http.ResponseEntity com.whoknows.hot.HotController.listRandVip()"
+  },
+  "{[/hot/tag/{page}],methods=[GET]}": {
+    "bean": "requestMappingHandlerMapping",
+    "method": "public org.springframework.http.ResponseEntity com.whoknows.hot.HotController.listHotTag(java.lang.String,java.lang.Integer)"
+  },
+  "{[/hot/rand/tag],methods=[GET]}": {
+    "bean": "requestMappingHandlerMapping",
+    "method": "public org.springframework.http.ResponseEntity com.whoknows.hot.HotController.listRandTag()"
+  },
+  "{[/hot/recommend],methods=[GET]}": {
+    "bean": "requestMappingHandlerMapping",
+    "method": "public org.springframework.http.ResponseEntity com.whoknows.hot.HotController.getRecommend()"
+  },
+  "{[/like/paper/{userId}/{replyId}],methods=[POST]}": {
+    "bean": "requestMappingHandlerMapping",
+    "method": "public org.springframework.http.ResponseEntity com.whoknows.like.LikeController.likePaper(java.lang.Long,java.lang.Long)"
+  },
+  "{[/like/reply/disable/{userId}/{replyId}],methods=[POST]}": {
+    "bean": "requestMappingHandlerMapping",
+    "method": "public org.springframework.http.ResponseEntity com.whoknows.like.LikeController.disLikeReply(java.lang.Long,java.lang.Long)"
+  },
+  "{[/like/reply/{userId}/{replyId}],methods=[POST]}": {
+    "bean": "requestMappingHandlerMapping",
+    "method": "public org.springframework.http.ResponseEntity com.whoknows.like.LikeController.likeReply(java.lang.Long,java.lang.Long)"
+  },
+  "{[/like/paper/disable/{userId}/{replyId}],methods=[POST]}": {
+    "bean": "requestMappingHandlerMapping",
+    "method": "public org.springframework.http.ResponseEntity com.whoknows.like.LikeController.disLikePaper(java.lang.Long,java.lang.Long)"
+  },
+  "{[/paper/{id}],methods=[GET]}": {
+    "bean": "requestMappingHandlerMapping",
+    "method": "public org.springframework.http.ResponseEntity com.whoknows.paper.PaperController.getPaper(java.lang.Long)"
+  },
+  "{[/paper],methods=[PUT],produces=[application/json]}": {
+    "bean": "requestMappingHandlerMapping",
+    "method": "public org.springframework.http.ResponseEntity com.whoknows.paper.PaperController.createPaper(com.whoknows.domain.Paper)"
+  },
+  "{[/paper/list/{userId}/{page}],methods=[GET]}": {
+    "bean": "requestMappingHandlerMapping",
+    "method": "public org.springframework.http.ResponseEntity com.whoknows.paper.PaperController.getPapers(java.lang.Long,java.lang.Integer)"
+  },
+  "{[/img/{id}],methods=[GET]}": {
+    "bean": "requestMappingHandlerMapping",
+    "method": "public org.springframework.http.ResponseEntity com.whoknows.picture.PictureController.getPicture(java.lang.Long)"
+  },
+  "{[/img],methods=[POST]}": {
+    "bean": "requestMappingHandlerMapping",
+    "method": "public org.springframework.http.ResponseEntity com.whoknows.picture.PictureController.putPicture(org.springframework.web.multipart.MultipartFile) throws java.io.IOException"
+  },
+  "{[/reply/list/{topic_id}/{page}],methods=[GET]}": {
+    "bean": "requestMappingHandlerMapping",
+    "method": "public org.springframework.http.ResponseEntity com.whoknows.reply.ReplyController.getReplyList(java.lang.Long,java.lang.Integer)"
+  },
+  "{[/reply],methods=[PUT],produces=[application/json]}": {
+    "bean": "requestMappingHandlerMapping",
+    "method": "public org.springframework.http.ResponseEntity com.whoknows.reply.ReplyController.createReply(com.whoknows.domain.Reply)"
+  },
+  "{[/reply],methods=[POST],produces=[application/json]}": {
+    "bean": "requestMappingHandlerMapping",
+    "method": "public org.springframework.http.ResponseEntity com.whoknows.reply.ReplyController.updateReply(com.whoknows.domain.Reply)"
+  },
+  "{[/reply/{id}],methods=[DELETE]}": {
+    "bean": "requestMappingHandlerMapping",
+    "method": "public org.springframework.http.ResponseEntity com.whoknows.reply.ReplyController.deleteReply(java.lang.Long)"
+  },
+  "{[/reply/{id}],methods=[GET]}": {
+    "bean": "requestMappingHandlerMapping",
+    "method": "public org.springframework.http.ResponseEntity com.whoknows.reply.ReplyController.getReply(java.lang.Long)"
+  },
+  "{[/search/{page}],methods=[GET]}": {
+    "bean": "requestMappingHandlerMapping",
+    "method": "public org.springframework.http.ResponseEntity com.whoknows.search.SearchController.searchByKeyWord(java.lang.String,java.lang.Integer)"
+  },
+  "{[/tag],methods=[PUT],produces=[application/json]}": {
+    "bean": "requestMappingHandlerMapping",
+    "method": "public org.springframework.http.ResponseEntity com.whoknows.tag.TagController.addTag(com.whoknows.domain.Tag)"
+  },
+  "{[/tag],methods=[DELETE],produces=[application/json]}": {
+    "bean": "requestMappingHandlerMapping",
+    "method": "public org.springframework.http.ResponseEntity com.whoknows.tag.TagController.deleteTag(com.whoknows.domain.Tag)"
+  },
+  "{[/tag/list/{tagName}],methods=[GET]}": {
+    "bean": "requestMappingHandlerMapping",
+    "method": "public org.springframework.http.ResponseEntity com.whoknows.tag.TagController.getTagList(java.lang.String)"
+  },
+  "{[/tag/list],methods=[GET]}": {
+    "bean": "requestMappingHandlerMapping",
+    "method": "public org.springframework.http.ResponseEntity com.whoknows.tag.TagController.getTagList()"
+  },
+  "{[/tag/home/{tagId}/{page}],methods=[GET]}": {
+    "bean": "requestMappingHandlerMapping",
+    "method": "public org.springframework.http.ResponseEntity com.whoknows.tag.TagController.getTagHome(java.lang.Long,java.lang.Integer)"
+  },
+  "{[/tag/{tagId}],methods=[GET]}": {
+    "bean": "requestMappingHandlerMapping",
+    "method": "public org.springframework.http.ResponseEntity com.whoknows.tag.TagController.getTag(java.lang.Long)"
+  },
+  "{[/token/{userId}/{token}],methods=[GET]}": {
+    "bean": "requestMappingHandlerMapping",
+    "method": "public org.springframework.http.ResponseEntity com.whoknows.token.TokenController.continueRegister(javax.servlet.http.HttpServletResponse,javax.servlet.http.HttpServletRequest,java.lang.Long,java.lang.String) throws java.io.IOException"
+  },
+  "{[/topic/{id}],methods=[GET]}": {
+    "bean": "requestMappingHandlerMapping",
+    "method": "public org.springframework.http.ResponseEntity com.whoknows.topic.TopicController.getTopic(java.lang.Long)"
+  },
+  "{[/topic],methods=[PUT],produces=[application/json]}": {
+    "bean": "requestMappingHandlerMapping",
+    "method": "public org.springframework.http.ResponseEntity com.whoknows.topic.TopicController.createTopic(com.whoknows.topic.TopicCreateMessage)"
+  },
+  "{[/topic],methods=[POST],produces=[application/json]}": {
+    "bean": "requestMappingHandlerMapping",
+    "method": "public org.springframework.http.ResponseEntity com.whoknows.topic.TopicController.updateTopic(com.whoknows.domain.Topic)"
+  },
+  "{[/topic/{id}],methods=[DELETE]}": {
+    "bean": "requestMappingHandlerMapping",
+    "method": "public org.springframework.http.ResponseEntity com.whoknows.topic.TopicController.deleteTopic(java.lang.Long)"
+  },
+  "{[/user/{id}],methods=[GET]}": {
+    "bean": "requestMappingHandlerMapping",
+    "method": "public org.springframework.http.ResponseEntity com.whoknows.user.UserContoller.getUserInfo(java.lang.Long)"
+  },
+  "{[/user/current],methods=[GET],produces=[application/json]}": {
+    "bean": "requestMappingHandlerMapping",
+    "method": "public org.springframework.http.ResponseEntity com.whoknows.user.UserContoller.current()"
+  },
+  "{[/user/img],methods=[POST]}": {
+    "bean": "requestMappingHandlerMapping",
+    "method": "public org.springframework.http.ResponseEntity com.whoknows.user.UserContoller.putUserPicture(org.springframework.web.multipart.MultipartFile) throws java.io.IOException"
+  },
+  "{[/user],methods=[PUT],produces=[application/json]}": {
+    "bean": "requestMappingHandlerMapping",
+    "method": "public org.springframework.http.ResponseEntity com.whoknows.user.UserContoller.registUser(com.whoknows.domain.User)"
+  },
+  "{[/user/import],methods=[PUT],produces=[application/json]}": {
+    "bean": "requestMappingHandlerMapping",
+    "method": "public org.springframework.http.ResponseEntity com.whoknows.user.UserContoller.importUserList(java.util.List<com.whoknows.domain.User>)"
+  },
+  "{[/user],methods=[POST],produces=[application/json]}": {
+    "bean": "requestMappingHandlerMapping",
+    "method": "public org.springframework.http.ResponseEntity com.whoknows.user.UserContoller.editUserInfo(com.whoknows.user.UserDetail)"
+  },
+  "{[/user/password/reset],methods=[POST],produces=[application/json]}": {
+    "bean": "requestMappingHandlerMapping",
+    "method": "public org.springframework.http.ResponseEntity com.whoknows.user.UserContoller.resetPasswd(com.whoknows.user.ResetPasswdMessage)"
+  },
+  "{[/user/topic/{userId}/{page}],methods=[GET]}": {
+    "bean": "requestMappingHandlerMapping",
+    "method": "public org.springframework.http.ResponseEntity com.whoknows.user.UserContoller.getUserCreateTopics(java.lang.Long,java.lang.Integer)"
+  },
+  "{[/user/follow/{userId}/{page}],methods=[GET]}": {
+    "bean": "requestMappingHandlerMapping",
+    "method": "public org.springframework.http.ResponseEntity com.whoknows.user.UserContoller.getUserFollowTopics(java.lang.Long,java.lang.Integer)"
+  },
+  "{[/user/reply/{userId}/{page}],methods=[GET]}": {
+    "bean": "requestMappingHandlerMapping",
+    "method": "public org.springframework.http.ResponseEntity com.whoknows.user.UserContoller.getUserReplyTopics(java.lang.Long,java.lang.Integer)"
+  },
+  "{[/user/home/count/into/{userId}],methods=[GET]}": {
+    "bean": "requestMappingHandlerMapping",
+    "method": "public org.springframework.http.ResponseEntity com.whoknows.user.UserContoller.getUserCountInfo(java.lang.Long)"
+  },
+  "{[/user/follow/list/tag],methods=[GET]}": {
+    "bean": "requestMappingHandlerMapping",
+    "method": "public org.springframework.http.ResponseEntity com.whoknows.user.UserContoller.getUserFollowTagList()"
+  },
+  "{[/user/follow/list/vip],methods=[GET]}": {
+    "bean": "requestMappingHandlerMapping",
+    "method": "public org.springframework.http.ResponseEntity com.whoknows.user.UserContoller.getUserVipList()"
+  },
+  "{[/vip/{userId}],methods=[GET]}": {
+    "bean": "requestMappingHandlerMapping",
+    "method": "public org.springframework.http.ResponseEntity com.whoknows.vip.VipController.getVip(java.lang.Long)"
+  },
+  "{[/vip/set/{userEmail}],methods=[POST],produces=[application/json]}": {
+    "bean": "requestMappingHandlerMapping",
+    "method": "public org.springframework.http.ResponseEntity com.whoknows.vip.VipController.setVip(java.lang.String)"
+  },
+  "{[/error]}": {
+    "bean": "requestMappingHandlerMapping",
+    "method": "public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)"
+  },
+  "{[/error],produces=[text/html]}": {
+    "bean": "requestMappingHandlerMapping",
+    "method": "public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)"
+  },
+  "{[/admin/autoconfig || /admin/autoconfig.json],methods=[GET],produces=[application/json]}": {
+    "bean": "endpointHandlerMapping",
+    "method": "public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()"
+  },
+  "{[/admin/info || /admin/info.json],methods=[GET],produces=[application/json]}": {
+    "bean": "endpointHandlerMapping",
+    "method": "public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()"
+  },
+  "{[/admin/env/{name:.*}],methods=[GET],produces=[application/json]}": {
+    "bean": "endpointHandlerMapping",
+    "method": "public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EnvironmentMvcEndpoint.value(java.lang.String)"
+  },
+  "{[/admin/env || /admin/env.json],methods=[GET],produces=[application/json]}": {
+    "bean": "endpointHandlerMapping",
+    "method": "public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()"
+  },
+  "{[/admin/trace || /admin/trace.json],methods=[GET],produces=[application/json]}": {
+    "bean": "endpointHandlerMapping",
+    "method": "public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()"
+  },
+  "{[/admin/configprops || /admin/configprops.json],methods=[GET],produces=[application/json]}": {
+    "bean": "endpointHandlerMapping",
+    "method": "public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()"
+  },
+  "{[/admin/beans || /admin/beans.json],methods=[GET],produces=[application/json]}": {
+    "bean": "endpointHandlerMapping",
+    "method": "public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()"
+  },
+  "{[/admin/dump || /admin/dump.json],methods=[GET],produces=[application/json]}": {
+    "bean": "endpointHandlerMapping",
+    "method": "public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()"
+  },
+  "{[/admin/mappings || /admin/mappings.json],methods=[GET],produces=[application/json]}": {
+    "bean": "endpointHandlerMapping",
+    "method": "public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()"
+  },
+  "{[/admin/metrics/{name:.*}],methods=[GET],produces=[application/json]}": {
+    "bean": "endpointHandlerMapping",
+    "method": "public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.MetricsMvcEndpoint.value(java.lang.String)"
+  },
+  "{[/admin/metrics || /admin/metrics.json],methods=[GET],produces=[application/json]}": {
+    "bean": "endpointHandlerMapping",
+    "method": "public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()"
+  },
+  "{[/admin/health || /admin/health.json],produces=[application/json]}": {
+    "bean": "endpointHandlerMapping",
+    "method": "public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.HealthMvcEndpoint.invoke(java.security.Principal)"
+  },
+  "{[/admin/heapdump || /admin/heapdump.json],methods=[GET],produces=[application/octet-stream]}": {
+    "bean": "endpointHandlerMapping",
+    "method": "public void org.springframework.boot.actuate.endpoint.mvc.HeapdumpMvcEndpoint.invoke(boolean,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.io.IOException,javax.servlet.ServletException"
+  },
+  "{[/admin/liquibase || /admin/liquibase.json],methods=[GET],produces=[application/json]}": {
+    "bean": "endpointHandlerMapping",
+    "method": "public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()"
+  }
+}
