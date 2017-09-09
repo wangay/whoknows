@@ -24,7 +24,6 @@
 <body>
 
 <form action="/tag/addTag" method="post">
-
     <h3>使用说明：下面可以支持增加多个tag只要用,隔开，并且name跟rank一一对应</h3><br/>
     <h3>比如 技术,tor  30,30</h3><br/>
     标签名称：<input type="text" id="name" value=""/></br>
