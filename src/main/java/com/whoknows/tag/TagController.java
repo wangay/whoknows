@@ -23,6 +23,12 @@ public class TagController {
 	@Autowired
 	private TagService tagService;
 
+	@RequestMapping(value = "/toAddTag", method = RequestMethod.GET)
+	public String getTag() {
+		//进到增加tag的页面
+		return "app/tags/toAddTag";
+	}
+
 	@RequestMapping(path = "/{tagId}", method = RequestMethod.GET)
 	public ResponseEntity getTag(@PathVariable("tagId") Long tagId) {
 		Tag tags = tagService.getTagByID(tagId);
@@ -33,10 +39,14 @@ public class TagController {
 		}
 	}
 
-	@RequestMapping(method = RequestMethod.PUT, produces = "application/json")
-	public ResponseEntity addTag(@RequestBody Tag tag) {
-		log.info(ToStringBuilder.reflectionToString(tag, ToStringStyle.MULTI_LINE_STYLE));
-		if (tagService.addTag(tag)) {
+	@RequestMapping(value="/addTag",method = RequestMethod.POST)
+	public ResponseEntity addTag(@RequestBody List<Tag> tagList) {
+		boolean flag = false;
+		for (Tag tag : tagList) {
+			boolean result = tagService.addTag(tag);
+			flag = flag || result;
+		}
+		if (flag) {
 			return ResponseEntity.ok().build();
 		} else {
 			return ResponseEntity.badRequest().build();

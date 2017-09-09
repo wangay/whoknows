@@ -49,6 +49,12 @@ public class TagService {
 			return false;
 		}
 
+		List tagList = getTagList(tag.getName());
+		if(tagList!=null && tagList.size()>0){
+			//没有同名的才可以添加
+			return false;
+		}
+
 		tag.setAction(ActionType.active.toString());
 		try {
 			tagRepository.addTag(tag);
