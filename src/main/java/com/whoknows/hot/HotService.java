@@ -17,7 +17,7 @@ import org.springframework.stereotype.Service;
 public class HotService {
 
 	private final Logger log = LoggerFactory.getLogger(this.getClass());
-	private final int pageSize = 5;
+	private final int pageSize = 50;//设成很大，不分页
 
 	@Autowired
 	private HotDAO hotDAO;
