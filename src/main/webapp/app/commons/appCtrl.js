@@ -30,12 +30,14 @@ angular.module('wkCommon').controller('wkCommon.appCtrl',
 				if ($scope.user.loginTime == null) {
 					$location.path("/registTagSelect");
 				} else if (LocalStorageService.get('LastPage')) {
+					//未登录时，试图访问的那个页面。
 					var lastPage = LocalStorageService.get('LastPage');
 					if (lastPage) {
 						LocalStorageService.remove('LastPage');
 						$location.path(lastPage);
 					}
 				} else {
+					// 默认页面
 					$location.path('/');
 				}
 

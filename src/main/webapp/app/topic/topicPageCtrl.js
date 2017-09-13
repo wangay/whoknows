@@ -3,6 +3,7 @@
 angular.module('wkTopic').controller('TopicCtrl',
 		function ($scope, $rootScope, $location, $route, $http, $window, UserService, LocalStorageService) {
 			if (!UserService.isSignedIn()) {
+				//没登录，路由到login
 				LocalStorageService.put('LastPage', $location.path());
 				$location.path("/login");
 				return;

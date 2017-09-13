@@ -15,7 +15,8 @@
 		<meta name="keywords" content="${title},${logoUpperWords},${logoDownWords}" />
 	</head>
 	<body ng-controller="wkCommon.appCtrl">
-	<wk-side-bar></wk-side-bar>
+	<wk-side-bar></wk-side-bar><!--侧边栏，无用-->
+	<!--导航栏-->
 	<nav class="navbar navbar-default" role="navigation" >
         <div class="container-fluid">
 			<div class="navbar-header"  >
@@ -40,10 +41,15 @@
 			</div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
 	</nav>
+	<!--导航栏 end-->
+
 
 	<div class="header-fill"></div>
 
 	<div class="app-content container">
+		<%--np-view是路由后，要显示的内容。这里会放注册登录--%>
+		<%--默认就是登录--%>
+		<%--登录成功的，放topic等内容--%>
 		<div ng-view autoScroll="true"></div>
 	</div>
 	<footer>

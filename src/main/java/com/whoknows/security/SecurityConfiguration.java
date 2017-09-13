@@ -71,6 +71,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 				//admin下需要身份验证
 				//.antMatchers("/admin/**").permitAll()
 				.antMatchers("/alex/**").permitAll()
+				//可以看，而且默认进入问题页面，而不是登录
+				//.antMatchers("/p/**").permitAll()
 				.anyRequest().authenticated()
 				.and()
 				.formLogin().loginPage("/p/#/login").permitAll().and().csrf().disable()

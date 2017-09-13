@@ -14,3 +14,8 @@ steps to install this website:
 you can login website in localhost:18888
 
 4.mvn pacakge to get jar file.
+
+=======
+源代码流程走向：
+
+见index.html

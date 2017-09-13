@@ -26,6 +26,8 @@ var wkCommon = angular.module('wkCommon', ['ngRoute']).config(function ($routePr
 			standalonePage: true
 		}
 	}).otherwise({
+		//index.jsp默认进/topic的路由,加载 app/topic/topicPage，
+		// 然后发现没登录，登录后再跳回/topic
 		redirectTo: '/topic'
 	});
 });

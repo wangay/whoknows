@@ -5,6 +5,14 @@
         <link rel="icon" type="image/png" href="images/favicon.png" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<meta http-equiv="refresh" content="1; url=./p/">
+        <!--
+        流程走向：
+        页面的第一个位置，然后访问/p/,然后进入index.jsp,
+        根据commonModule.js的路由信息，定位到/topic--》topicPage.jsp/topicPageCtrl.js
+
+---》发现没登录，路由到/login---》登录成功后路由'/'到这个页面--》。。。。--》发现登录成功了，加载topic相关内容
+
+        -->
     </head>
     <body>
 
