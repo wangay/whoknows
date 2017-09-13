@@ -1,5 +1,6 @@
 'use strict';
 
+//点了右侧的tag bar,显示的对应的topic(问题)列表
 angular.module('wkTag').controller('TagDetailCtrl',
 		function ($scope, $rootScope, $location, $route, $http, $routeParams, DEFAULT_IMG, UserService, LocalStorageService) {
 
@@ -22,7 +23,9 @@ angular.module('wkTag').controller('TagDetailCtrl',
 					} else {
 						$scope.hideReadMore = true;
 					}
-				}).error(function () {
+				}).error(function (e) {
+					//TODO alert
+					alert(e);
 					$scope.hideReadMore = true;
 				});
 			}

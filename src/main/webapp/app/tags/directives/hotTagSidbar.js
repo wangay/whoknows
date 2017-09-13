@@ -18,7 +18,6 @@ angular.module('wkTag').directive('hotTagSiderbar', function ($location, UserSer
 				if (keyWord != undefined && keyWord != null && $.trim(keyWord) != '') {
 					tagListUrl = tagListUrl + "?keyWord=" + keyWord;
 				}
-
 				$http.get(tagListUrl).success(function (data) {
 					scope.tags = data;
 					scope.lastPage = scope.tags.length < 5;

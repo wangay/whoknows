@@ -14,7 +14,10 @@ var wkCommon = angular.module('wkCommon', ['ngRoute']).config(function ($routePr
 		data: {
 			standalonePage: true
 		}
-	}).when('/setting', {
+	}).when('/tagDetail/:tagId', {
+        templateUrl: 'app/tags/tagDetailPage',
+        controller: 'TagDetailCtrl'
+    }).when('/setting', {
 		templateUrl: 'app/setting/settingPage',
 		controller: 'SettingCtrl',
 		data: {
@@ -28,7 +31,8 @@ var wkCommon = angular.module('wkCommon', ['ngRoute']).config(function ($routePr
 	}).otherwise({
 		//index.jsp默认进/topic的路由,加载 app/topic/topicPage，
 		// 然后发现没登录，登录后再跳回/topic
-		redirectTo: '/topic'
+		//redirectTo: '/topic'
+		redirectTo:'tagDetail/7'
 	});
 });
 

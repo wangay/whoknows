@@ -8,15 +8,16 @@ angular.module('wkCommon').factory('permissionCheckInterceptor', function ($q, $
 			if (status === 401 || status === 403) {
 				console.log('Access was denied to the resource.');
 
-				var userService = $injector.get('UserService');
-				if (!userService.isSignedIn()) {
-					if ($location.path() !== '/login') {
-						LocalStorageService.put('LastPage', $location.path());
-					}
-					$location.path('/login');
-				} else {
-					$location.path('/');
-				}
+				//之前是必须登录，这是个拦截器，所有的请求都会经过这里处理。
+				// var userService = $injector.get('UserService');
+				// if (!userService.isSignedIn()) {
+				// 	if ($location.path() !== '/login') {
+				// 		LocalStorageService.put('LastPage', $location.path());
+				// 	}
+				// 	$location.path('/login');
+				// } else {
+				// 	$location.path('/');
+				// }
 			}
 			return $q.reject(response);
 

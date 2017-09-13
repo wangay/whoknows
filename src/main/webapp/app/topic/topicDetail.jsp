@@ -1,5 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<div class="container topic-detail-page"> 
+<div class="container topic-detail-page">
 	<div class="row row-offcanvas row-offcanvas-right">
         <div class="col-xs-12 col-sm-9">
 			<h2 class="text-center"><p ng-bind-html="topic.topic.title | to_trusted"></p> </h2>
@@ -9,8 +9,8 @@
 			<hr />
 
 			<div class="topic-list">
-				<div class="row" ng-repeat="reply in topic.replys"> 
-					<div class="col-xs-20 col-sm-12"> 
+				<div class="row" ng-repeat="reply in topic.replys">
+					<div class="col-xs-20 col-sm-12">
 						<div class="topic-body" >
 							<div class="topic-body-author">
 								<img ng-src="{{reply.author.picture|| defaultPeopleImg}}" class="ng-cloak"></img>

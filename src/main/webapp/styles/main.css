@@ -19,13 +19,15 @@ color: #f7f7f7;
 color: #f9f9f9;
 color: #b5b5b5;
 color: #c3c3c3;
+color: #ddffdd;
+
 }
 body{
 	font-size: 15px;
     font-family:Helvetica;
 	word-wrap: break-word;
 	line-height: 1.7;
-	background-color: #ddffdd;
+	background-color: #E2E2E2;
 }
 .wk-default-content-font{
 	font-size: 15px;
@@ -582,7 +584,7 @@ footer {
 .topic-list .topic-body .topic-body-content{
 	margin: 5px;
 	padding: 0px 5px 0px 0px;
-	font-size: 13px;
+	font-size: 18px;
 }
 .topic-list .topic-body .topic-body-content a{
 	font-size: 12px;
@@ -664,7 +666,7 @@ topic-comment-list .topic-comment-body .topic-comment-body-author{
 .topic-comment-list .topic-comment-body .topic-comment-body-content{
 	margin: 5px 5px 5px 15px;
 	padding: 0px 5px 0px 15px;
-	font-size: 13px;
+	font-size: 18px;
 }
 .topic-comment-list .topic-comment-body .topic-comment-body-attach-info{
 	font-size: 12px;

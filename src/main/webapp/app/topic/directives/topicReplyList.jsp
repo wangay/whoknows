@@ -1,7 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <div ng-repeat = "replyDetail in replyDetailList">
 	<div class="topic-body" ng-if="replyDetail != null && replyDetail.reply != null">
-		<div class="topic-body-author"> 
+		<div class="topic-body-author">
 			<img ng-src="{{replyDetail.author.picture|| defaultPeopleImg}}" class="ng-cloak"></img>
 			<wk-name-span user="replyDetail.author"></wk-name-span>
 		</div>

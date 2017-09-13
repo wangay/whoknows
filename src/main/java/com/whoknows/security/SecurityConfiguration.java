@@ -57,11 +57,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 				.antMatchers(HttpMethod.GET, "/img/**").permitAll()
 				.antMatchers("/properties/**").permitAll()
 				// other spring mvn controller need auth
-				.antMatchers("/search/**").authenticated()
-				.antMatchers("/tag/**").authenticated()
-				.antMatchers("/topic/**").authenticated()
+				.antMatchers("/search/**").permitAll()
+				//标签不登录也可以看
+				.antMatchers("/tag/**").permitAll()
+				//热门标签，不登录可以看
+				.antMatchers("/hot/**").permitAll()
+				.antMatchers("/topic/**").permitAll()
 				.antMatchers(HttpMethod.POST, "/img/**").authenticated()
-				.antMatchers("/hot/**").authenticated()
 				.antMatchers("/reply/**").authenticated()
 				.antMatchers("/follow/**").authenticated()
 				.antMatchers("/like/**").authenticated()
@@ -71,8 +73,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 				//admin下需要身份验证
 				//.antMatchers("/admin/**").permitAll()
 				.antMatchers("/alex/**").permitAll()
-				//可以看，而且默认进入问题页面，而不是登录
-				//.antMatchers("/p/**").permitAll()
+				//TODO 可以看，而且默认进入问题页面，而不是登录
+				.antMatchers("/p/**").permitAll()
 				.anyRequest().authenticated()
 				.and()
 				.formLogin().loginPage("/p/#/login").permitAll().and().csrf().disable()
