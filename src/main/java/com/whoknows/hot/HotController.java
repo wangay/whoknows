@@ -1,8 +1,11 @@
 package com.whoknows.hot;
 
+import com.whoknows.topic.TopicService;
 import com.whoknows.vip.VipDetail;
 import com.whoknows.tag.TagDetail;
 import java.util.List;
+import java.util.Map;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +23,9 @@ public class HotController {
 
 	@Autowired
 	private HotService hotService;
+
+	@Autowired
+	private TopicService  topicService;
 
 	@RequestMapping(path = "/vip/{page}", method = RequestMethod.GET)
 	public ResponseEntity searchVipyKeyWordOnRank(String keyWord, @PathVariable("page") Integer page) {
@@ -56,11 +62,19 @@ public class HotController {
 		} else {
 			topics = hotService.listHotTags(keyWord, page);
 		}
-
 		if (topics != null) {
+			setTopicNum(topics,topicService.getTopiccountMap());
 			return ResponseEntity.ok(topics);
 		} else {
 			return ResponseEntity.badRequest().build();
+		}
+	}
+
+	private void setTopicNum(List<TagDetail> topics,Map<Long,Long> topicNumMap){
+
+		for (TagDetail tag : topics) {
+			Long tagId = tag.getTagID();
+			tag.setTotalTopic(topicNumMap.get(tagId)==null?0L:topicNumMap.get(tagId));
 		}
 	}
 

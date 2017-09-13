@@ -7,6 +7,7 @@ public class TagDetail {
 	private Long tagID;
 	private Integer followCount;
 	private Boolean currentFollowed;
+	private Long totalTopic;//tag有多少topic
 
 	public Integer getFollowCount() {
 		return followCount;
@@ -48,4 +49,11 @@ public class TagDetail {
 		this.tagName = tagName;
 	}
 
+	public Long getTotalTopic() {
+		return totalTopic;
+	}
+
+	public void setTotalTopic(Long totalTopic) {
+		this.totalTopic = totalTopic;
+	}
 }

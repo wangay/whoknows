@@ -16,6 +16,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @Service
 public class TopicService {
 
@@ -100,6 +103,7 @@ public class TopicService {
 		}
 	}
 
+
 	public TopicDetail getTopicDetail(Long id) {
 		if (id == null) {
 			return null;
@@ -128,5 +132,9 @@ public class TopicService {
 			e.printStackTrace();
 			return null;
 		}
+	}
+
+	public Map<Long,Long> getTopiccountMap(){
+		return this.topicRepository.getTopicNumMap();
 	}
 }

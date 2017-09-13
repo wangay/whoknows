@@ -7,6 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 @Repository
 public class TopicRepository {
 
@@ -59,5 +63,22 @@ public class TopicRepository {
 					topic.setUpdate_time(rs.getTimestamp("update_time"));
 					return topic;
 				}).stream().findAny().orElse(null);
+	}
+
+	/***
+	 * 每个tag有多少topic
+	 * @return Map
+	 */
+	public Map<Long,Long>  getTopicNumMap(){
+		String sql = "select tag_id,count(tag_id) as  topicNum  from tag_topic group by tag_id ";
+		List list = jdbcTemplate.queryForList(sql);
+		Map<Long,Long> topicNumMap = new HashMap<Long,Long>();
+		for (Object o : list) {
+			Map map = (Map)o;
+			Long tagId = (Long)map.get("tag_id");
+			Long topicNum = (Long) map.get("topicNum");
+			topicNumMap.put(tagId,topicNum);
+		}
+		return topicNumMap;
 	}
 }

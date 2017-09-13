@@ -9,7 +9,6 @@ angular.module('wkCommon').controller('wkCommon.appCtrl',
 				$scope.user = UserService.getCurrent();
 			}
 
-			//TODO 一开始进入index.jsp,就要求登录
 			UserService.initialize().then(function () {
 				$scope.loginIn = UserService.isSignedIn();
 				if ($scope.loginIn) {

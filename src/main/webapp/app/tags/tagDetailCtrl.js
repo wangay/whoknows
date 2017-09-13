@@ -24,8 +24,6 @@ angular.module('wkTag').controller('TagDetailCtrl',
 						$scope.hideReadMore = true;
 					}
 				}).error(function (e) {
-					//TODO alert
-					alert(e);
 					$scope.hideReadMore = true;
 				});
 			}
