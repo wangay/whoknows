@@ -19,7 +19,7 @@
 			</div>
 			<div class="list-group-item text-center see-more-topic">
 				<a href="javascrpit:void(0)" ng-click="prePage()" ng-hide="currentPage == 1">上一页</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<a href="javascrpit:void(0)" ng-click="nextPage()" ng-hide="lastPage" >下一页</a>
+				<a href="javascrpit:void(0)" ng-click="nextPage()" ng-hide="true" >下一页</a>
 			</div>
 		</div>
 	</div>
