@@ -1,6 +1,8 @@
 package com.whoknows.domain;
 
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class Reply {
 
@@ -13,6 +15,17 @@ public class Reply {
 	private Timestamp update_time;
 	private Long reply_id;
 	private Long rank;
+	private String createTime;//字符串形式，前段直接显示
+
+	public String getCreateTime() {
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//定义格式，不显示毫秒
+		createTime = df.format(getCreate_time());
+		return createTime;
+	}
+
+	public void setCreateTime(String createTime) {
+		this.createTime = createTime;
+	}
 
 	public Long getRank() {
 		return rank;
