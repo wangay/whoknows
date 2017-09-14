@@ -87,7 +87,7 @@ public class TagRepository {
 		return jdbcTemplate.query("SELECT topic.* FROM topic "
 				+ "left join tag_topic on tag_topic.topic_id = topic.id "
 				+ "where tag_topic.tag_id = ? "
-				+ "order by topic.rank desc "
+				+ "order by topic.create_time asc,topic.rank desc " //,topic.rank desc//时间倒序后，反而页面上是时间正序，可能是页面展示顺序问题
 				+ "limit ? OFFSET ? ",
 				ps -> {
 					ps.setLong(1, tagId);
