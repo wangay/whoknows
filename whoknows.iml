@@ -100,5 +100,6 @@
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-autoconfigure:1.4.1.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-actuator:1.4.1.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-actuator:1.4.1.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: error:jpa:unknown" level="project" />
   </component>
 </module>

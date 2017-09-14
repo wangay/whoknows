@@ -137,4 +137,5 @@ public class TopicService {
 	public Map<Long,Long> getTopiccountMap(){
 		return this.topicRepository.getTopicNumMap();
 	}
+	
 }

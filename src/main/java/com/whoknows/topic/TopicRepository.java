@@ -1,6 +1,7 @@
 package com.whoknows.topic;
 
 import com.whoknows.domain.Topic;
+import com.whoknows.tag.TagSelect;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,7 @@ public class TopicRepository {
 
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
+
 
 	public Long createTopic(Topic topic) {
 		jdbcTemplate.update("insert into topic(user_id, title, content, action) values (?, ?, ?, ?)",
@@ -80,5 +82,34 @@ public class TopicRepository {
 			topicNumMap.put(tagId,topicNum);
 		}
 		return topicNumMap;
+	}
+
+
+
+
+	public  List<Topic> getNewTopics() {
+		return jdbcTemplate.query("select * from topic order by create_time desc limit 200", (rs, row) -> {
+			Topic t = new Topic();
+			t.setAction(rs.getString("action"));
+			t.setContent(rs.getString("content"));
+			t.setCreate_time(rs.getTimestamp("create_time"));
+			t.setId(rs.getLong("id"));
+			t.setRank(rs.getLong("rank"));
+			t.setTitle(rs.getString("title"));
+			t.setUpdate_time(rs.getTimestamp("update_time"));
+			t.setUser_id(rs.getLong("user_id"));
+			return t;
+		});
+	}
+
+	/***
+	 * 按新增的topic排序，取最新的
+	 * @return
+	 */
+	public  List<Long> getNewTopicIds() {
+		return jdbcTemplate.query("select topic.id as id from topic order by create_time desc limit 200", (rs, row) -> {
+			Long id = rs.getLong("id");
+			return id;
+		});
 	}
 }

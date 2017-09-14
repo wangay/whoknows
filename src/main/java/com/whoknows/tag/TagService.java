@@ -1,5 +1,6 @@
 package com.whoknows.tag;
 
+import com.whoknows.Constant;
 import com.whoknows.comment.CommentService;
 import com.whoknows.domain.ActionType;
 import com.whoknows.domain.Reply;
@@ -12,18 +13,21 @@ import com.whoknows.reply.ReplyDetail;
 import com.whoknows.search.Paging;
 import com.whoknows.search.TopicResult;
 import com.whoknows.topic.TopicDetail;
+import com.whoknows.topic.TopicRepository;
 import com.whoknows.user.UserDetail;
 import com.whoknows.user.UserService;
 import com.whoknows.utils.CommonFunction;
-
-import java.util.List;
-import java.util.stream.Collectors;
-
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class TagService {
@@ -43,6 +47,12 @@ public class TagService {
 	private FollowService followService;
 	@Autowired
 	private CommentService commentService;
+
+	@Autowired
+	private TopicRepository topicRepository;
+
+	@Autowired
+	private JdbcTemplate jdbcTemplate;
 
 	public boolean addTag(Tag tag) {
 		if (StringUtils.isEmpty(tag.getName())) {
@@ -101,16 +111,36 @@ public class TagService {
 		}
 	}
 
+	/***
+	 * 前台传递-1，那么寻找"最新tag"
+	 * @param tagId
+	 * @return
+	 */
+	private Long dealTagId(Long tagId){
+		if(tagId==-1L){
+			List<Tag> tagList = getTagList(Constant.NEW_TAG_NAME);
+			if(tagList==null || tagList.size()==0){
+				return tagId;
+			}
+			return tagList.get(0).getId();
+		}
+		return tagId;
+
+	}
+
 	public TagHomeRespone getTagHome(Long tagId, Integer page) {
 		if (tagId == null || page == null) {
 			return null;
 		}
+		tagId = dealTagId(tagId);
 
+		Tag tag = null;
 		try {
 			UserDetail user = userService.currentUser();
 
 			TagHomeRespone tagHomeRespone = new TagHomeRespone();
-			tagHomeRespone.setTag(tagRepository.getTag(tagId));
+			tag = tagRepository.getTag(tagId);
+			tagHomeRespone.setTag(tag);
 			tagHomeRespone.setTagFollowCount(followService.followCount(tagId, TargetType.tag));
 			if (user != null && user.getId() != null) {
 				tagHomeRespone.setCurrentFollowed(followService.isFollowed(user.getId(), tagId, TargetType.tag));
@@ -160,6 +190,12 @@ public class TagService {
 	public boolean addTagRelation(Long topicId, Long tagId) {
 		try {
 			tagRepository.addTagRelation(topicId, tagId);
+			// 也更新"最新"tag
+			List<Tag> tagList = this.getTagList(Constant.NEW_TAG_NAME);
+			if(tagList!=null && tagList.size()>0){
+				Long newTagId = tagList.get(0).getId();
+				tagRepository.addTagRelation(topicId, newTagId);
+			}
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -175,5 +211,25 @@ public class TagService {
 			return null;
 		}
 
+	}
+
+	@Transactional(propagation = Propagation.REQUIRED)
+	public  void updateNewTag(){
+		List<Tag> tagList = getTagList(Constant.NEW_TAG_NAME);
+		if(tagList==null || tagList.size()==0){
+			return;
+		}
+		Long newTagId = tagList.get(0).getId();
+		String deleteSql = "delete from tag_topic where tag_id="+newTagId;
+
+		List<Long> newTopics = topicRepository.getNewTopicIds();
+		String[] sqlArr = new String[newTopics.size()];
+		for (int i = 0; i < newTopics.size(); i++) {
+			Long topicId = newTopics.get(i);
+			String updateSql = "insert into tag_topic(tag_id,topic_id) values("+newTagId+","+topicId+")";
+			sqlArr[i]=updateSql;
+		}
+		jdbcTemplate.execute(deleteSql);
+		jdbcTemplate.batchUpdate(sqlArr);
 	}
 }

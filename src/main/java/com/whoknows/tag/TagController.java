@@ -92,4 +92,15 @@ public class TagController {
 			return ResponseEntity.badRequest().build();
 		}
 	}
+
+	@RequestMapping(path = "/updateNewTag")
+	public ResponseEntity  updateNewTag() {
+		try {
+			tagService.updateNewTag();
+			return ResponseEntity.ok("success");
+		} catch (Exception e) {
+			return ResponseEntity.badRequest().build();
+		}
+
+	}
 }
