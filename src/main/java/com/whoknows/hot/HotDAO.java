@@ -4,7 +4,11 @@ import com.whoknows.vip.VipDetail;
 import com.whoknows.tag.TagDetail;
 import com.whoknows.domain.RoleType;
 import com.whoknows.utils.CommonFunction;
+
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -93,11 +97,33 @@ public class HotDAO {
 				},
 				(rs, row) -> {
 					TagDetail tag = new TagDetail();
-					tag.setPicture(null);
-					tag.setTagID(rs.getLong("id"));
 					tag.setTagName(rs.getNString("name"));
+					tag.setPicture(getTagPicture(tag.getTagName()));
+					tag.setTagID(rs.getLong("id"));
 					return tag;
 				});
+	}
+
+	private static final Map<String,String> TAG_PICTURE_MAP  = new HashMap<>();
+	{
+
+		TAG_PICTURE_MAP.put("其他","qita");
+		TAG_PICTURE_MAP.put("技术","jishu");
+		TAG_PICTURE_MAP.put("安全与隐私","anquan");
+		TAG_PICTURE_MAP.put("暗网与深网","anwang");
+		TAG_PICTURE_MAP.put("买卖与交易" ,"maimai");
+		TAG_PICTURE_MAP.put("钱" ,"qian");
+		TAG_PICTURE_MAP.put("雇佣" ,"guyong");
+		TAG_PICTURE_MAP.put("蘑菇大麻lsd" ,"dama");
+		TAG_PICTURE_MAP.put("国际" ,"guoji");
+		TAG_PICTURE_MAP.put("法律" ,"falv");
+		TAG_PICTURE_MAP.put("性" ,"sex");
+		TAG_PICTURE_MAP.put("悲伤时刻" ,"beishang");
+		TAG_PICTURE_MAP.put("食物" ,"shiwu");
+		TAG_PICTURE_MAP.put("最新" ,"zuixin");
+	}
+	private String getTagPicture(String tagName){
+		return "/images/tag/"+TAG_PICTURE_MAP.get(tagName)+".png";
 	}
 
 	public List<TagDetail> listRandTag(int pageSize) {

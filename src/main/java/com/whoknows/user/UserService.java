@@ -174,6 +174,8 @@ public class UserService {
 		}
 		try {
 			user.setAction(ActionType.active.name());
+			//设置默认头像 head中的几个图片，随机选择
+
 			Long id = userRepository.createUser(user);
 			String token = tokenService.genToken();
 			tokenService.storeToken(id, token);

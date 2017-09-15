@@ -20,6 +20,13 @@ angular.module('wkLogin').controller('LoginCtrl',
 			$scope.closeWarn = function () {
 				$scope.loggingError = false;
 			}
+
+            function random(){
+                return Math.floor(Math.random()*10);
+            }
+            $scope.randomNum1 = random();
+            $scope.randomNum2 = random();
+
 			$scope.login = function () {
 
 
@@ -39,4 +46,6 @@ angular.module('wkLogin').controller('LoginCtrl',
 					$scope.$broadcast('event:login:failure');
 				});
 			}
+
+
 		});

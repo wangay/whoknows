@@ -1,5 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<div class="container login-page"> 
+<div class="container login-page">
 	<div class="row row-offcanvas row-offcanvas-right">
         <div class="col-sm-6 login-panel-parent" >
 			<div class="panel login-panel">
@@ -30,6 +30,11 @@
 							<label for="inputPassword3" required  class="col-sm-3 control-label">密码</label>
 							<div class="col-sm-9">
 								<input type="password" class="form-control  login-passwd-input" id="inputPassword3" ng-model="loginInfo.password"  placeholder="Password">
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-sm-offset-3 col-sm-10">
+								{{randomNum1}}+{{randomNum2}}=<input type="text" >
 							</div>
 						</div>
 						<div class="form-group">
