@@ -75,7 +75,7 @@ public class BiService {
 	public void flushRank(RankCollection rankCollection) {
 		try {
 			biRepository.flushUserRank(rankCollection.getUserRank());
-			biRepository.flushTagRank(rankCollection.getTagRank());
+			//biRepository.flushTagRank(rankCollection.getTagRank());
 			biRepository.flushPaperRank(rankCollection.getPaperRank());
 			biRepository.flushTopicRank(rankCollection.getTopicRank());
 			biRepository.flushReplyRank(rankCollection.getReplayRank());
