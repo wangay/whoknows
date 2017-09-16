@@ -10,7 +10,7 @@ public class BiConfig {
 	@Autowired
 	private BiService biService;
 
-	@Scheduled(cron = "0 * * * * ?")
+	@Scheduled(cron = "* * 6 * * ?")
 	public void rankCount() {
 		RankCollection rankCollection = new RankCollection();
 
